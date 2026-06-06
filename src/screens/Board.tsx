@@ -1,37 +1,43 @@
 import { Appbar } from "../Components/Appbar";
+import { BoardSection } from "../Components/BoardSection";
 import { Card } from "../Components/Card"
 export function Board() {
-  return <div style={{}}>
+
+  const pendingTasks = [{
+    id: 1,
+    title: "Node to bun Migration",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."
+  },
+  {
+    id: 2,
+    title: "Node to bun Migration",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."
+  }]
+  const onGoingTasks = [{
+    id: 1,
+    title: "Node to bun Migration",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."
+  }]
+  const doneTasks = [{
+    id: 1,
+    title: "Node to bun Migration",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."
+  }]
+  return <div>
     <Appbar />
     <div style={{ display: "flex", gap: 10 }}>
-      <div style={{ flex: 1, borderRight: "1px dotted black", minHeight: "80vh", }}>
-        <Card
-          title={"Node to bun Migration"}
-          description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."}
-        />
-        <Card
-          title={"Node to bun Migration"}
-          description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."}
-        />
-        <Card
-          title={"Node to bun Migration"}
-          description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."}
-        />
 
-      </div>
-      <div style={{ flex: 1, borderRight: "1px dotted black", minHeight: "80vh" }}>
-        <Card
-          title={"Node to bun Migration"}
-          description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."}
-        />
+      <BoardSection>
+        {pendingTasks.map((task) => <Card key={task.id} title={task.title} description={task.description} />)}
+      </BoardSection>
 
-      </div>
-      <div style={{ flex: 1, minHeight: "80vh" }}>
-        <Card
-          title={"Node to bun Migration"}
-          description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate."}
-        />
-      </div>
+      <BoardSection >
+        {onGoingTasks.map((task) => <Card key={task.id} title={task.title} description={task.description} />)}
+      </BoardSection>
+
+      <BoardSection>
+        {doneTasks.map((task) => <Card key={task.id} title={task.title} description={task.description} />)}
+      </BoardSection>
     </div>
-  </div>
+  </div >
 }
